@@ -44,9 +44,9 @@ public class frmFlotayChofer extends javax.swing.JFrame {
     }
     public void iniciar3(){
          cbxFiltar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {
-        "Ordenar de A a Z",
-        "Ordenar por Fecha",
-        "Ordenar por vehiculo"
+        "Ordenar por Marca",
+        "Ordenar por Año",
+        "Ordenar por Vehiculo"
         }));
      }
     
@@ -849,20 +849,32 @@ public class frmFlotayChofer extends javax.swing.JFrame {
         String opcion = cbxFiltar.getSelectedItem().toString();
 
         switch (opcion) {
-            case "Ordenar de A a Z":
-            lista1.sort(Comparator.comparing(Vehiculo::getMarca));
-            break;
+            case "Ordenar por Marca":
+                if (ordenAZAsc) {
+                    lista1.sort(Comparator.comparing(Vehiculo::getMarca));
+                } else {
+                    lista1.sort(Comparator.comparing(Vehiculo::getMarca).reversed());
+                }
+                ordenAZAsc = !ordenAZAsc;
+                break;
 
-            case "Ordenar por Fecha":
-            lista1.sort(Comparator.comparing(Vehiculo::getFregistro)); // Asegúrate que sea formato compatible
-            break;
+            case "Ordenar por Año":
+                if (ordenFechaAsc) {
+                    lista1.sort(Comparator.comparing(Vehiculo::getAniomodelo).reversed()); 
+                } else {
+                    lista1.sort(Comparator.comparing(Vehiculo::getMarca));
+                }
+                ordenFechaAsc = !ordenFechaAsc;
+                break;
 
-            case "Ordenar por vehiculo":
-            lista1.sort(Comparator.comparing(Vehiculo::getTipov));
-            break;
-
-            default:
-            break;
+            case "Ordenar por Vehiculo":
+            if (ordenTipoAsc) {
+                    lista1.sort(Comparator.comparing(Vehiculo::getTipov));
+                } else {
+                    lista1.sort(Comparator.comparing(Vehiculo::getTipov).reversed());
+                }
+                ordenTipoAsc = !ordenTipoAsc;
+                break;
         }
 
         // Mostrar resultado en el TextArea
