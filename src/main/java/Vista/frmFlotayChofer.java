@@ -862,7 +862,7 @@ public class frmFlotayChofer extends javax.swing.JFrame {
                 if (ordenFechaAsc) {
                     lista1.sort(Comparator.comparing(Vehiculo::getAniomodelo).reversed()); 
                 } else {
-                    lista1.sort(Comparator.comparing(Vehiculo::getMarca));
+                    lista1.sort(Comparator.comparing(Vehiculo::getAniomodelo));
                 }
                 ordenFechaAsc = !ordenFechaAsc;
                 break;
