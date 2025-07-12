@@ -668,6 +668,11 @@ Pedido pe=new Pedido();
         taHistorial.setText(sb.toString());
 
     }//GEN-LAST:event_cbxFiltarActionPerformed
+    private void txtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {                                     
+        if (txtTelefono.getText().length()>=9) {
+            evt.consume();
+        }
+    } 
 ////////////////////////////////////////////////////////////////////////////////////////
     /**
      * @param args the command line arguments
