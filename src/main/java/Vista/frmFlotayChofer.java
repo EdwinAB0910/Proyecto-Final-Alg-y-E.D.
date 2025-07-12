@@ -913,7 +913,11 @@ public class frmFlotayChofer extends javax.swing.JFrame {
         buttonGroup1.clearSelection();
         buttonGroup2.clearSelection();
     }//GEN-LAST:event_btnNuevochoActionPerformed
-
+    private void txtDNIChoferKeyTyped(java.awt.event.KeyEvent evt) {                                      
+        if (txtDNIChofer.getText().length()>=8) {
+            evt.consume();
+        }
+    } 
     /**
      * @param args the command line arguments
      */
